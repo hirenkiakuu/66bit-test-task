@@ -1,0 +1,32 @@
+.wrapper {
+  box-shadow: var(--box-shadow-standart);
+  background: var(--theme-color-standart);
+  width: 100vw;
+}
+
+.wrapper-inner {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 27px 25px;
+  max-width: 1610px;
+  width: 100vw;
+  margin: 0 auto;
+}
+
+.contact-info-theme-toggle-container {
+  display: flex;
+  gap: 48px;
+}
+
+.contact-info-theme-toggle-container a {
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (max-width: 320px) {
+  .contact-info-theme-toggle-container a {
+    display: none;
+  }
+}
