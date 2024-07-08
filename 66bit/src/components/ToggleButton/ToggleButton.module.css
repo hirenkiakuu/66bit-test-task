@@ -1,0 +1,51 @@
+.checkbox {
+  cursor: pointer;
+}
+
+.checkbox {
+  opacity: 0;
+}
+
+.checkbox-label {
+  width: 55px;
+  height: 26px;
+  border-radius: 30px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-shadow: inset 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  background: var(--accent-color);
+}
+
+.checkbox-label .ball {
+  background-color: #fff;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(-29px);
+}
+
+.ball {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 17px;
+  height: 17px;
+  background-size: cover;
+}
+
+.theme-image {
+  width: 14px;
+  height: 14px;
+}

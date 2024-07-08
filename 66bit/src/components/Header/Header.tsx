@@ -1,3 +1,4 @@
+import ToggleButton from '../ToggleButton/ToggleButton';
 import styles from './Header.module.css';
 
 const Header = () => {
@@ -13,7 +14,7 @@ const Header = () => {
           <div className={styles['contact-info-theme-toggle-container']}>
             <a href="tel:+73432908476">+7 343 290 84 76</a>
             <a href="mailto:info@66bit.ru">info@66bit.ru</a>
-            <button>Смена темы</button>
+            <ToggleButton />
           </div>
         </div>
       </header>
