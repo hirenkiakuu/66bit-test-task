@@ -1,11 +1,15 @@
 import cn from 'classnames';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import styles from './ToggleButton.module.css';
+import { ThemeContext } from '../../context/theme.context';
 
 const ToggleButton = () => {
   const [isSun, setIsSun] = useState(false);
+  const { theme, setTheme } = useContext(ThemeContext);
 
   const handleToggle = () => {
+    setTheme(theme === 'dark' ? 'default' : 'dark');
+    console.log(theme);
     setIsSun(!isSun); // Переключение темы
   };
 

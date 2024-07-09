@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 // import App from './App.tsx';
 import './index.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { ThemeContextProvider } from './context/theme.context.tsx';
 import Layout from './layouts/Employees/Layout.tsx';
 import Employee from './pages/Employee/Employee.tsx';
 import Employees from './pages/Employees/Employess.tsx';
@@ -13,11 +14,11 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        path: '/',
+        path: '/employees',
         element: <Employees />,
       },
       {
-        path: '/employee/:id',
+        path: '/employees/:id',
         element: <Employee />,
       },
     ],
@@ -30,6 +31,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ThemeContextProvider>
+      <RouterProvider router={router} />
+    </ThemeContextProvider>
   </React.StrictMode>
 );

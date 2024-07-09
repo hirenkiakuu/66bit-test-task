@@ -1,0 +1,14 @@
+.crumbs-container {
+  max-width: 1560px;
+  margin: 0 auto;
+  padding: 28px 25px;
+  width: 100vw;
+  color: var(--link-text-color);
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.crumb {
+  text-decoration: none;
+  color: inherit;
+}

@@ -1,10 +1,20 @@
+import cn from 'classnames';
+import { ThemeContext } from '../../context/theme.context';
 import ToggleButton from '../ToggleButton/ToggleButton';
+import { useContext } from 'react';
 import styles from './Header.module.css';
 
 const Header = () => {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <>
-      <header className={styles['wrapper']}>
+      <header
+        className={cn(styles['wrapper'], {
+          [styles['default-theme']]: theme === 'default',
+          [styles['dark-theme']]: theme === 'dark',
+        })}
+      >
         <div className={styles['wrapper-inner']}>
           <img
             className={styles['header-logo']}
