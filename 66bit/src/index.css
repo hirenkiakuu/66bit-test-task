@@ -17,6 +17,8 @@
 
   --link-text-color: #b0b0b0;
 
+  --input-placeholder-color: #818181;
+
   --box-shadow-standart: 0 4px 8px 0 rgba(57, 113, 164, 0.25);
   --box-shadow-dark: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
 }

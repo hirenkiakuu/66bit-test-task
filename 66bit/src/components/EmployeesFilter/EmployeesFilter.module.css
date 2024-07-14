@@ -1,0 +1,9 @@
+.filter-panel-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.search-bar {
+  width: 100%;
+}
