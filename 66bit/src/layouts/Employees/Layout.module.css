@@ -13,7 +13,10 @@
 }
 
 .content {
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   /* max-width: 1610px; */
   background-color: var(--theme-color);
   color: var(--font-color);

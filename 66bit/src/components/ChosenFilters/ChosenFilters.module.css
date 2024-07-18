@@ -1,0 +1,40 @@
+/* chosen-filter-label styles */
+
+.chosen-filters-container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.chosen-filters-container h4 {
+  font-weight: 500;
+}
+
+.chosen-filter-items-container {
+  display: flex;
+  gap: 24px;
+}
+
+.chosen-filter-item {
+  border-radius: 5px;
+  padding: 10px;
+  width: 103px;
+  height: 39px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  background-color: var(--theme-color);
+  cursor: pointer;
+}
+
+/* .chosen-filter-item:hover {
+  background-color: var(--hover-color);
+} */
+
+.delete-btn {
+  width: 10px;
+  height: 10px;
+}

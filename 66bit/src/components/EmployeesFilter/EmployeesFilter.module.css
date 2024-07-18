@@ -1,9 +1,34 @@
+.filter-panel-container {
+  max-width: 1560px;
+  width: 100%;
+}
+
 .filter-panel-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 28px;
+}
+
+.filter-panel-bottom {
+  background-color: var(--hover-color);
+  padding: 13px 0px;
+  max-width: 100vw;
+  width: 100%;
+  /* display: flex;
+  justify-content: center; */
+}
+
+.filter-panel-bottom-inner {
+  max-width: 1560px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .search-bar {
   width: 100%;
+  margin-bottom: 28px;
 }

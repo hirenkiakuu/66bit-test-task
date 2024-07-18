@@ -6,7 +6,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { ThemeContextProvider } from './context/theme.context.tsx';
 import Layout from './layouts/Employees/Layout.tsx';
 import Employee from './pages/Employee/Employee.tsx';
-import Employees from './pages/Employees/Employess.tsx';
+import Employees from './pages/Employees/Employees.tsx';
 
 const router = createBrowserRouter([
   {

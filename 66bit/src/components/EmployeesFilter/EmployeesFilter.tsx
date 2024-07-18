@@ -1,4 +1,7 @@
 import Input from '../Input/Input';
+import ChosenFilters from '../ChosenFilters/ChosenFilters';
+import Button from '../Button/Button';
+import Select from '../Select/Select';
 import styles from './EmployeesFilter.module.css';
 
 const EmployeesFilter = () => {
@@ -7,16 +10,20 @@ const EmployeesFilter = () => {
       <div className={styles['filter-panel-container']}>
         <div className={styles['filter-panel-header']}>
           <h1>Список сотрудников</h1>
-          <select name="" id=""></select>
+
+          <Select />
         </div>
         <Input
           type="text"
           placeholder="Поиск"
           className={styles['search-bar']}
         />{' '}
-        {/* ChosenFilters */}
-        {/* Button */}
-        Выбранные фильтры Кнопка
+      </div>
+      <div className={styles['filter-panel-bottom']}>
+        <div className={styles['filter-panel-bottom-inner']}>
+          <ChosenFilters />
+          <Button>Найти</Button>
+        </div>
       </div>
     </>
   );
