@@ -2,10 +2,49 @@ import cn from 'classnames';
 import styles from './Select.module.css';
 import { useState } from 'react';
 
-const Select = () => {
+const selectConfig = [
+  {
+    name: 'Position',
+    value: 'Backend',
+    label: 'Backend-разработчик',
+  },
+  {
+    name: 'Position',
+    value: 'Frontend',
+    label: 'Frontend-разработчик',
+  },
+];
+
+const Select = ({ onSelectionChange }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [selectedOptions, setSelectedOptions] = useState({});
 
   const toggleDropdown = () => setIsDropdownOpen((prevState) => !prevState);
+
+  const handleCheckboxChange = (e) => {
+    const { value, name, checked } = e.target;
+
+    // Создаем копию текущих выбранных опций
+    const updatedSelectionOptions = { ...selectedOptions };
+
+    // Если массив для ключа не существует, инициализируем его
+    if (!updatedSelectionOptions[name]) {
+      updatedSelectionOptions[name] = [];
+    }
+
+    // Добавляем или удаляем значение в массиве
+    if (checked) {
+      updatedSelectionOptions[name] = [...updatedSelectionOptions[name], value];
+    } else {
+      updatedSelectionOptions[name] = updatedSelectionOptions[name].filter(
+        (option) => option !== value
+      );
+    }
+
+    // Обновляем состояние и вызываем функцию обратного вызова
+    setSelectedOptions(updatedSelectionOptions);
+    onSelectionChange(updatedSelectionOptions);
+  };
 
   return (
     <>
@@ -24,27 +63,21 @@ const Select = () => {
           })}
         >
           <ul className={styles['multi-select-dropdown__options']}>
-            <li className={styles['multi-select-dropdown__option']}>
-              <span>Backend-разработчик</span>
-              <input
-                className={styles['multi-select-dropdown__option-checkbox']}
-                type="checkbox"
-              ></input>
-            </li>
-            <li className={styles['multi-select-dropdown__option']}>
-              <span>Frontend-разработчик</span>
-              <input
-                className={styles['multi-select-dropdown__option-checkbox']}
-                type="checkbox"
-              ></input>
-            </li>
-            <li className={styles['multi-select-dropdown__option']}>
-              <span>Аналитик</span>
-              <input
-                className={styles['multi-select-dropdown__option-checkbox']}
-                type="checkbox"
-              ></input>
-            </li>
+            {selectConfig.map((option) => (
+              <li
+                key={option.name}
+                className={styles['multi-select-dropdown__option']}
+              >
+                <span>{option.label}</span>
+                <input
+                  className={styles['multi-select-dropdown__option-checkbox']}
+                  type="checkbox"
+                  value={option.value}
+                  name={option.name}
+                  onChange={handleCheckboxChange}
+                ></input>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

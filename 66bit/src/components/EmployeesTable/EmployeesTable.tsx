@@ -1,24 +1,40 @@
 import styles from './EmployeesTable.module.css';
+import { EmployeesTableProps } from './EmployeesTableProps.interface';
 
-const EmployeesTable = () => {
+const EmployeesTable = ({
+  employeesData,
+  lastEmployeeElementRef,
+}: EmployeesTableProps) => {
   return (
     <>
       <table>
         <thead className={styles['table-head']}>
-          <th>ФИО</th>
-          <th>Должность</th>
-          <th>Телефон</th>
-          <th>Дата рождения</th>
+          <tr>
+            <th>ФИО</th>
+            <th>Должность</th>
+            <th>Телефон</th>
+            <th>Дата рождения</th>
+          </tr>
         </thead>
         <tbody>
-          <tr className={styles['table-row']}>
-            <td className={styles['table-row__cell']}>
-              Дмитриев Игорь Степанович
-            </td>
-            <td className={styles['table-row__cell']}>Дизайнер</td>
-            <td className={styles['table-row__cell']}>+7 934 349-43-23</td>
-            <td className={styles['table-row__cell']}>23.09.2000</td>
-          </tr>
+          {employeesData.map((employee, index) => (
+            <tr
+              className={styles['table-row']}
+              key={index}
+              ref={
+                employeesData.length === index + 1
+                  ? lastEmployeeElementRef
+                  : null
+              }
+            >
+              <td className={styles['table-row__cell']}>{employee.name}</td>
+              <td className={styles['table-row__cell']}>{employee.position}</td>
+              <td className={styles['table-row__cell']}>{employee.phone}</td>
+              <td className={styles['table-row__cell']}>
+                {employee.birthdate}
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </>

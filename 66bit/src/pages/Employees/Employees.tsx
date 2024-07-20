@@ -4,13 +4,13 @@ import Input from '../../components/Input/Input';
 import EmployeesTable from '../../components/EmployeesTable/EmployeesTable';
 import EmployeesFilter from '../../components/EmployeesFilter/EmployeesFilter';
 import styles from './Employees.module.css';
+import EmployeesDashboard from '../../components/EmployeesDashboard/EmployeesDashboard';
 
 const Employees = () => {
   return (
     <>
       <BreadCrumbs />
-      <EmployeesFilter />
-      <EmployeesTable />
+      <EmployeesDashboard />
       {/* <Button>Найти</Button> */}
     </>
   );
