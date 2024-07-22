@@ -1,24 +1,21 @@
 import axios from 'axios';
 import EmployeesFilter from '../EmployeesFilter/EmployeesFilter';
 import EmployeesTable from '../EmployeesTable/EmployeesTable';
-import styles from './EmployeesDashboard.module.css';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { SelectedOptions } from '../Select/Select.interface';
+import { Employee } from '../model/Employee.interface';
+import styles from './EmployeesDashboard.module.css';
 
 const PAGE_SIZE = 5;
 
 const EmployeesDashboard = () => {
-  // Дата для таблицы передается в нее
-  //
-
   const [page, setPage] = useState(1);
+  const [filterOptions, setFilterOptions] = useState<SelectedOptions>({});
+  const [employeesData, setEmployeesData] = useState<Employee[]>([]);
 
-  const [filterOptions, setFilterOptions] = useState({});
+  const observer = useRef<IntersectionObserver | null>(null);
 
-  const [employeesData, setEmployeesData] = useState([]);
-
-  const observer = useRef();
-
-  const lastEmployeeElementRef = useCallback((node) => {
+  const lastEmployeeElementRef = useCallback((node: Element | null) => {
     if (observer.current) observer.current.disconnect();
 
     observer.current = new IntersectionObserver((entries) => {
@@ -32,21 +29,10 @@ const EmployeesDashboard = () => {
 
   const fetchEmployees = async () => {
     try {
-      const params = {
-        Page: page,
-        Count: PAGE_SIZE,
-        Position: ['Backend', 'Frontend'],
-      };
+      const queryParams = buildQueryParams(filterOptions);
 
-      const params = new URLSearchParams();
-
-      console.log(params);
-
-      const res = await axios.get(
-        `https://frontend-test-api.stk8s.66bit.ru/api/Employee`,
-        {
-          params,
-        }
+      const res = await axios.get<Employee[]>(
+        `https://frontend-test-api.stk8s.66bit.ru/api/Employee?${queryParams}`
       );
 
       console.log(res.data); // УДАЛИТЬ
@@ -60,15 +46,29 @@ const EmployeesDashboard = () => {
     fetchEmployees();
   }, [page, filterOptions]);
 
-  const handleFilterChange = (values) => {
-    let updatedFilterOptions = {
-      ...filterOptions,
-      ...values,
-    };
+  const buildQueryParams = (filterOptions: SelectedOptions): string => {
+    const queryParams = new URLSearchParams();
 
+    for (const [key, value] of Object.entries(filterOptions)) {
+      if (Array.isArray(value)) {
+        value.forEach((val) => queryParams.append(key, val.value));
+      } else {
+        queryParams.append(key, value);
+      }
+    }
+
+    queryParams.append('Page', page.toString());
+    queryParams.append('Count', PAGE_SIZE.toString());
+
+    return queryParams.toString();
+  };
+
+  const handleFilterChange = (updatedFilterOptions: SelectedOptions) => {
     console.log(updatedFilterOptions);
-
     setFilterOptions(updatedFilterOptions);
+    setPage(1);
+    setEmployeesData([]);
+    // setPage(1);
   };
 
   return (
