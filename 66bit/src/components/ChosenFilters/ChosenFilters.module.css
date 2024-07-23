@@ -13,12 +13,13 @@
 .chosen-filter-items-container {
   display: flex;
   gap: 24px;
+  flex-wrap: wrap;
+  max-width: 1145px;
 }
 
 .chosen-filter-item {
   border-radius: 5px;
   padding: 10px;
-  width: 103px;
   height: 39px;
   display: flex;
   align-items: center;

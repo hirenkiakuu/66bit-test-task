@@ -38,7 +38,7 @@ const EmployeesFilter = ({ onFilterChange }: EmployeeFilterProps) => {
 
     console.log(newSelectedOptions);
     setSelectedOptions(updatedOptions);
-    onFilterChange({ ...updatedOptions, Name: searchQuery });
+    // onFilterChange({ ...updatedOptions, Name: searchQuery });
   };
 
   const handleRemoveFilter = (filterKey: string, filterValue: string) => {
@@ -53,7 +53,7 @@ const EmployeesFilter = ({ onFilterChange }: EmployeeFilterProps) => {
     // }
 
     setSelectedOptions(updatedOptions);
-    onFilterChange(updatedOptions);
+    // onFilterChange(updatedOptions);
   };
 
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -61,7 +61,11 @@ const EmployeesFilter = ({ onFilterChange }: EmployeeFilterProps) => {
 
     setSearchQuery(newSearchQuery);
 
-    onFilterChange({ ...selectedOptions, Name: newSearchQuery });
+    // onFilterChange({ ...selectedOptions, Name: newSearchQuery });
+  };
+
+  const handleSearchClick = () => {
+    onFilterChange({ ...selectedOptions, Name: searchQuery });
   };
 
   return (
@@ -69,28 +73,29 @@ const EmployeesFilter = ({ onFilterChange }: EmployeeFilterProps) => {
       <div className={styles['filter-panel-container']}>
         <div className={styles['filter-panel-header']}>
           <h1>Список сотрудников</h1>
-
-          <Select
-            selectTitle={'Должность'}
-            selectQueryParameter={'Position'}
-            selectableOptions={positionSelectConfig}
-            onSelectionChange={handleSelectionChange}
-            selectedOptions={selectedOptions}
-          />
-          <Select
-            selectTitle={'Пол'}
-            selectQueryParameter={'Gender'}
-            selectableOptions={genderSelectConfig}
-            onSelectionChange={handleSelectionChange}
-            selectedOptions={selectedOptions}
-          />
-          <Select
-            selectTitle={'Стек технологий'}
-            selectQueryParameter={'Stack'}
-            selectableOptions={stackSelectConfig}
-            onSelectionChange={handleSelectionChange}
-            selectedOptions={selectedOptions}
-          />
+          <div className={styles['filter-select-container']}>
+            <Select
+              selectTitle={'Должность'}
+              selectQueryParameter={'Position'}
+              selectableOptions={positionSelectConfig}
+              onSelectionChange={handleSelectionChange}
+              selectedOptions={selectedOptions}
+            />
+            <Select
+              selectTitle={'Пол'}
+              selectQueryParameter={'Gender'}
+              selectableOptions={genderSelectConfig}
+              onSelectionChange={handleSelectionChange}
+              selectedOptions={selectedOptions}
+            />
+            <Select
+              selectTitle={'Стек технологий'}
+              selectQueryParameter={'Stack'}
+              selectableOptions={stackSelectConfig}
+              onSelectionChange={handleSelectionChange}
+              selectedOptions={selectedOptions}
+            />
+          </div>
         </div>
         <Input
           type="text"
@@ -105,7 +110,7 @@ const EmployeesFilter = ({ onFilterChange }: EmployeeFilterProps) => {
             chosenFilterOptions={selectedOptions}
             onRemoveFilter={handleRemoveFilter}
           />
-          <Button>Найти</Button>
+          <Button onClick={handleSearchClick}>Найти</Button>
         </div>
       </div>
     </>

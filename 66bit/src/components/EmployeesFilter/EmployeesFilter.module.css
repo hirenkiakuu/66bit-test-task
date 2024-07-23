@@ -10,6 +10,11 @@
   margin-bottom: 28px;
 }
 
+.filter-select-container {
+  display: flex;
+  gap: 32px;
+}
+
 .filter-panel-bottom {
   background-color: var(--hover-color);
   padding: 13px 0px;
