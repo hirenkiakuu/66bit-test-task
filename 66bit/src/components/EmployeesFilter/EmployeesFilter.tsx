@@ -38,7 +38,6 @@ const EmployeesFilter = ({ onFilterChange }: EmployeeFilterProps) => {
 
     console.log(newSelectedOptions);
     setSelectedOptions(updatedOptions);
-    // onFilterChange({ ...updatedOptions, Name: searchQuery });
   };
 
   const handleRemoveFilter = (filterKey: string, filterValue: string) => {
@@ -49,19 +48,13 @@ const EmployeesFilter = ({ onFilterChange }: EmployeeFilterProps) => {
       ),
     };
 
-    // if (updatedOptions[filterKey].length === 0) {
-    // }
-
     setSelectedOptions(updatedOptions);
-    // onFilterChange(updatedOptions);
   };
 
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     const newSearchQuery = e.target.value;
 
     setSearchQuery(newSearchQuery);
-
-    // onFilterChange({ ...selectedOptions, Name: newSearchQuery });
   };
 
   const handleSearchClick = () => {
@@ -99,13 +92,13 @@ const EmployeesFilter = ({ onFilterChange }: EmployeeFilterProps) => {
               selectedOptions={selectedOptions}
             />
           </div>
+          <Input
+            type="text"
+            placeholder="Поиск"
+            className={styles['search-bar']}
+            onChange={handleSearchChange}
+          />
         </div>
-        <Input
-          type="text"
-          placeholder="Поиск"
-          className={styles['search-bar']}
-          onChange={handleSearchChange}
-        />
       </div>
       <div className={styles['filter-panel-bottom']}>
         <div className={styles['filter-panel-bottom-inner']}>

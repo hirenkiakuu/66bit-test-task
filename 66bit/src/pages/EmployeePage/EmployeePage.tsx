@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
 import { Employee } from '../../components/model/Employee.interface';
 import styles from './EmployeePage.module.css';
 import axios from 'axios';
+import { convertDate } from '../../helpers/dateHelper';
 import { useParams } from 'react-router-dom';
 
 const EmployeePage = () => {
@@ -27,7 +27,6 @@ const EmployeePage = () => {
 
   return (
     <>
-      <BreadCrumbs />
       <div className={styles['employee-info-header-container']}>
         <img
           className={styles['employee-avatar']}
@@ -37,7 +36,7 @@ const EmployeePage = () => {
         <div className={styles['employee-info-header__content']}>
           <h1>{employee?.name}</h1>
           <p>{employee?.position}</p>
-          <ul className={styles['stack-list']}>
+          <ul className={styles['stack-list-desktop']}>
             {employee?.stack.map((item) => (
               <li key={item} className={styles['stack-list-item']}>
                 {item}
@@ -46,6 +45,14 @@ const EmployeePage = () => {
           </ul>
         </div>
       </div>
+
+      <ul className={styles['stack-list-mobile']}>
+        {employee?.stack.map((item) => (
+          <li key={item} className={styles['stack-list-item']}>
+            {item}
+          </li>
+        ))}
+      </ul>
 
       <div className={styles['divider']}></div>
 
@@ -58,11 +65,11 @@ const EmployeePage = () => {
           </li>
           <li className={styles['main-info-list-item']}>
             <h3>Дата рождения:</h3>
-            <p>{employee?.birthdate}</p>
+            <p>{employee && convertDate(employee?.birthdate)}</p>
           </li>
           <li className={styles['main-info-list-item']}>
             <h3>Дата устройства:</h3>
-            <p>{employee?.dateOfEmployment}</p>
+            <p>{employee && convertDate(employee.dateOfEmployment)}</p>
           </li>
         </ul>
       </div>

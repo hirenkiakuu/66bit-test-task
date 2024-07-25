@@ -1,5 +1,7 @@
+import cn from 'classnames';
 import { useNavigate } from 'react-router-dom';
 import { EmployeesTableProps } from './EmployeesTableProps.interface';
+import { convertDate } from '../../helpers/dateHelper';
 import styles from './EmployeesTable.module.css';
 
 const EmployeesTable = ({
@@ -9,7 +11,7 @@ const EmployeesTable = ({
   const navigate = useNavigate();
 
   const handleRowClick = (employeeId: number) => {
-    navigate(`/employees/${employeeId}`);
+    navigate(`${employeeId}`);
   };
 
   return (
@@ -40,9 +42,11 @@ const EmployeesTable = ({
                 <td className={styles['table-row__cell']}>
                   {employee.position}
                 </td>
-                <td className={styles['table-row__cell']}>{employee.phone}</td>
+                <td className={cn(styles['table-row__cell'], styles['phone'])}>
+                  {employee.phone}
+                </td>
                 <td className={styles['table-row__cell']}>
-                  {employee.birthdate}
+                  {convertDate(employee.birthdate)}
                 </td>
               </tr>
             ))}

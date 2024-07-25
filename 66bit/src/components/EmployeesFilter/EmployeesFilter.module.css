@@ -1,6 +1,7 @@
 .filter-panel-container {
   max-width: 100%;
   width: 100%;
+  margin-bottom: 28px;
 }
 
 .filter-panel-header {
@@ -8,7 +9,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 28px;
+  row-gap: 28px;
 }
 
 .filter-select-container {
@@ -37,12 +38,26 @@
 
 .search-bar {
   width: 100%;
-  margin-bottom: 28px;
 }
 
 @media (max-width: 450px) {
+  .filter-panel-header {
+    row-gap: 0px;
+  }
+
+  .filter-panel-bottom {
+    margin-bottom: 24px;
+  }
+
+  .filter-panel-bottom-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
   .filter-panel-header h1 {
     font-size: 20px;
+    margin-bottom: 16px;
   }
 
   .filter-select-container {
@@ -51,5 +66,10 @@
 
   .search-bar {
     height: 34px;
+    margin-bottom: 12px;
+  }
+
+  .filter-select-container {
+    order: 3;
   }
 }

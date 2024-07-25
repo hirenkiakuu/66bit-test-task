@@ -9,6 +9,7 @@
 .table-row {
   outline: none;
   cursor: pointer;
+  box-shadow: 0 1px 0 rgba(242, 242, 242, 1);
 }
 
 .table-row:hover {
@@ -42,13 +43,25 @@ table th {
   color: inherit;
 }
 
+.phone {
+  white-space: nowrap;
+}
+
 @media (max-width: 450px) {
   .table-head {
     font-size: 10px;
   }
 
+  table th {
+    padding: 4px 12px;
+  }
+
   .table-row {
     font-size: 12px;
+  }
+
+  .table-row__cell {
+    padding: 12px 12px;
   }
 }
 

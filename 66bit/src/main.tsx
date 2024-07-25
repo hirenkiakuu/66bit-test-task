@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-// import App from './App.tsx';
 import './index.css';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import {
+  Navigate,
+  RouterProvider,
+  createBrowserRouter,
+} from 'react-router-dom';
 import { ThemeContextProvider } from './context/theme.context.tsx';
 import Layout from './layouts/Employees/Layout.tsx';
 import EmployeePage from './pages/EmployeePage/EmployeePage.tsx';
@@ -11,15 +14,23 @@ import Employees from './pages/Employees/Employees.tsx';
 const router = createBrowserRouter([
   {
     path: '/',
+    element: <Navigate to="/main/employees" />, // Перенаправление с /main на /main/employees
+  },
+  {
+    path: '/main',
+    element: <Navigate to="/main/employees" />, // Перенаправление с /main на /main/employees
+  },
+  {
+    path: '/main/employees',
     element: <Layout />,
     children: [
       {
-        path: '/employees',
-        element: <Employees />,
+        path: '',
+        element: <Employees />, // Список сотрудников
       },
       {
-        path: '/employees/:id',
-        element: <EmployeePage />,
+        path: ':id',
+        element: <EmployeePage />, // Страница сотрудника
       },
     ],
   },

@@ -1,14 +1,56 @@
 .crumbs-container {
   max-width: 1560px;
-  margin: 0 auto;
   padding: 28px 25px;
   width: 100vw;
   color: var(--link-text-color);
   font-weight: 500;
   font-size: 18px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
 }
 
 .crumb {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.crumb-link {
   text-decoration: none;
   color: inherit;
+}
+
+.crumb-text {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.crumb-arrow {
+  width: 8px;
+  height: 13px;
+}
+
+nav {
+  margin: 0 auto;
+  max-width: 1608px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 450px) {
+  .crumbs-container {
+    font-size: 12px;
+    padding: 15px 25px;
+  }
+
+  .crumb-text {
+    max-width: 120px;
+  }
+
+  .crumb-arrow {
+    width: 6px;
+    height: 10px;
+  }
 }

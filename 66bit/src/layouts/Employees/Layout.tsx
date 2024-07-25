@@ -1,8 +1,9 @@
 import { Outlet } from 'react-router-dom';
 import { ThemeContext } from '../../context/theme.context';
 import Header from '../../components/Header/Header';
+import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
 import styles from './Layout.module.css';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import cn from 'classnames';
 
 const Layout = () => {
@@ -10,16 +11,24 @@ const Layout = () => {
 
   console.log(theme);
 
+  useEffect(() => {
+    document.documentElement.className =
+      theme === 'dark' ? 'dark-theme' : 'default-theme';
+  }, [theme]);
+
   return (
     <>
       <Header />
+      <BreadCrumbs />
       <div
         className={cn(styles['content'], {
-          [styles['default-theme']]: theme === 'default',
-          [styles['dark-theme']]: theme === 'dark',
+          'default-theme': theme === 'default',
+          'dark-theme': theme === 'dark',
         })}
       >
-        <Outlet />
+        <div className={styles['content-inner']}>
+          <Outlet />
+        </div>
       </div>
     </>
   );
