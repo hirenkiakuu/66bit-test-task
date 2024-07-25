@@ -50,7 +50,7 @@
   height: 14px;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 450px) {
   .checkbox-label {
     width: 47px;
     height: 22px;

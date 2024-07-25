@@ -5,7 +5,7 @@ import './index.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { ThemeContextProvider } from './context/theme.context.tsx';
 import Layout from './layouts/Employees/Layout.tsx';
-import Employee from './pages/Employee/Employee.tsx';
+import EmployeePage from './pages/EmployeePage/EmployeePage.tsx';
 import Employees from './pages/Employees/Employees.tsx';
 
 const router = createBrowserRouter([
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/employees/:id',
-        element: <Employee />,
+        element: <EmployeePage />,
       },
     ],
   },

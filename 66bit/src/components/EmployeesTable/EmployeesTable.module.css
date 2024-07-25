@@ -3,13 +3,12 @@
   font-weight: 500;
   font-size: 20px;
   color: var(--link-text-color);
-  /* display: flex;
-  justify-content: space-between; */
   padding: 28px;
 }
 
 .table-row {
   outline: none;
+  cursor: pointer;
 }
 
 .table-row:hover {
@@ -17,7 +16,7 @@
 }
 
 .table-row:hover td {
-  border: none; /* Убираем бордеры для всех ячеек при наведении на строку */
+  border: none;
 }
 
 .table-row__cell {
@@ -26,13 +25,35 @@
 }
 
 table {
-  max-width: 1584px;
-  /* min-height: 800px; */
   width: 100%;
   background-color: var(--theme-color);
+  overflow-x: scroll;
 }
 
 table th {
   text-align: left;
   padding: 28px 12px;
+}
+
+.table-link {
+  display: block;
+  font-family: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (max-width: 450px) {
+  .table-head {
+    font-size: 10px;
+  }
+
+  .table-row {
+    font-size: 12px;
+  }
+}
+
+.test {
+  max-width: 100%;
+  width: 100%;
+  overflow-x: auto;
 }

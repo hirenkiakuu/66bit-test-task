@@ -36,6 +36,7 @@ a,
 h1,
 h2,
 h3,
+h4,
 p {
   margin: 0;
   padding: 0;
@@ -56,21 +57,13 @@ li {
   padding: 0;
 }
 
-/* .default-theme {
-  --theme-color: var(var(--theme-color-standart));
-}
-
-.dark-theme {
-  --theme-color: var(var(var(--theme-color-dark)));
-} */
-
 table {
-  border-collapse: collapse; /* Объединение границ ячеек */
+  border-collapse: collapse;
 }
 
 td,
 th {
-  border: none; /* Убираем границы у ячеек и заголовков */
+  border: none;
 }
 
 th {
@@ -79,11 +72,27 @@ th {
 
 body {
   margin: 0;
-  padding: 0;
-  display: flex;
   place-items: center;
-
   font-family: var(--font-family-primary);
   font-weight: 400;
   font-size: 20px;
+  font-feature-settings: 'lnum' 1;
+}
+
+.default-theme {
+  --theme-color: var(--theme-color-standart);
+  --font-color: var(--primary-font-color);
+  --box-shadow: var(--box-shadow-standart);
+  --hover-color: var(--hover-standart);
+}
+
+.dark-theme {
+  --theme-color: var(--theme-color-dark);
+  --font-color: var(--secondary-font-color);
+  --box-shadow: var(--box-shadow-dark);
+  --hover-color: var(--hover-dark);
+}
+
+html {
+  background-color: var(--theme-color);
 }

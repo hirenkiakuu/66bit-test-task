@@ -39,7 +39,13 @@ const Select = ({
     <>
       <div className={styles['multi-select']}>
         <div className={styles['multi-select-header']} onClick={toggleDropdown}>
-          <div>{selectTitle}</div>
+          <h4
+            style={{
+              color: isDropdownOpen ? 'var(--accent-color)' : undefined,
+            }}
+          >
+            {selectTitle}
+          </h4>
           <img
             src={isDropdownOpen ? '/arrow-up.svg' : '/arrow-down.svg'}
             alt=""

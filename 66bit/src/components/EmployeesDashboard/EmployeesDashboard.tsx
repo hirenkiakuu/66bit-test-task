@@ -4,7 +4,6 @@ import EmployeesTable from '../EmployeesTable/EmployeesTable';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { SelectedOptions } from '../Select/Select.interface';
 import { Employee } from '../model/Employee.interface';
-import styles from './EmployeesDashboard.module.css';
 
 const PAGE_SIZE = 5;
 

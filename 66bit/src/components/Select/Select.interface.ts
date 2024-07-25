@@ -3,6 +3,10 @@ export interface SelectOption {
   label: string | undefined;
 }
 
+export interface SearchQueryOption {
+  value: string;
+}
+
 export interface SelectedOptions {
   [key: string]: SelectOption[];
 }

@@ -65,7 +65,10 @@ const EmployeesFilter = ({ onFilterChange }: EmployeeFilterProps) => {
   };
 
   const handleSearchClick = () => {
-    onFilterChange({ ...selectedOptions, Name: searchQuery });
+    onFilterChange({
+      ...selectedOptions,
+      Name: [{ value: searchQuery, label: searchQuery }],
+    });
   };
 
   return (

@@ -22,3 +22,9 @@
 .input::placeholder {
   color: var(--link-text-color);
 }
+
+@media (max-width: 450px) {
+  .input {
+    font-size: 12px;
+  }
+}

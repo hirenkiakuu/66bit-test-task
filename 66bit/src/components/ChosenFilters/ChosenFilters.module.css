@@ -31,11 +31,13 @@
   cursor: pointer;
 }
 
-/* .chosen-filter-item:hover {
-  background-color: var(--hover-color);
-} */
-
 .delete-btn {
   width: 10px;
   height: 10px;
+}
+
+@media (max-width: 450px) {
+  .chosen-filters-container h4 {
+    font-size: 14px;
+  }
 }
