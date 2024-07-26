@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
-import { Employee } from '../../components/model/Employee.interface';
-import styles from './EmployeePage.module.css';
 import axios from 'axios';
-import { convertDate } from '../../helpers/dateHelper';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Employee } from '../../model/Employee.interface';
+import { convertDate } from '../../helpers/dateHelper';
+import styles from './EmployeePage.module.css';
+
 
 const EmployeePage = () => {
   const [employee, setEmployee] = useState<Employee>();

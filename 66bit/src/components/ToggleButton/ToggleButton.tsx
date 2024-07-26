@@ -1,7 +1,6 @@
-import cn from 'classnames';
 import { useContext, useState } from 'react';
-import styles from './ToggleButton.module.css';
 import { ThemeContext } from '../../context/theme.context';
+import styles from './ToggleButton.module.css';
 
 const ToggleButton = () => {
   const [isSun, setIsSun] = useState(false);

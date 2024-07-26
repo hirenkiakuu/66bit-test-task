@@ -1,10 +1,11 @@
+
+import { ChangeEvent, useState } from 'react';
+import { EmployeeFilterProps } from './EmployeesFilter.interface';
+import { SelectedOptions, SelectOption } from '../Select/Select.interface';
 import Input from '../Input/Input';
 import ChosenFilters from '../ChosenFilters/ChosenFilters';
 import Button from '../Button/Button';
 import Select from '../Select/Select';
-import { ChangeEvent, useState } from 'react';
-import { EmployeeFilterProps } from './EmployeesFilter.interface';
-import { SelectedOptions, SelectOption } from '../Select/Select.interface';
 import styles from './EmployeesFilter.module.css';
 
 const positionSelectConfig: SelectOption[] = [

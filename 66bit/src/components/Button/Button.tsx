@@ -1,5 +1,5 @@
-import { ButtonProps } from './Button.interface';
 import cn from 'classnames';
+import { ButtonProps } from './Button.interface';
 import styles from './Button.module.css';
 
 const Button = ({ appearance, onClick, children }: ButtonProps) => {

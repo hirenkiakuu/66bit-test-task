@@ -1,9 +1,9 @@
 import axios from 'axios';
-import EmployeesFilter from '../EmployeesFilter/EmployeesFilter';
-import EmployeesTable from '../EmployeesTable/EmployeesTable';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { SelectedOptions } from '../Select/Select.interface';
-import { Employee } from '../model/Employee.interface';
+import { Employee } from '../../model/Employee.interface';
+import EmployeesFilter from '../EmployeesFilter/EmployeesFilter';
+import EmployeesTable from '../EmployeesTable/EmployeesTable';
 
 const PAGE_SIZE = 5;
 

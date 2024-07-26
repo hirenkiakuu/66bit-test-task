@@ -1,7 +1,7 @@
 import { useContext } from 'react';
+import { ThemeContext } from '../../context/theme.context';
 import { ChosenFiltersProps } from './ChosenFilters.interface';
 import styles from './ChosenFilters.module.css';
-import { ThemeContext } from '../../context/theme.context';
 
 const ChosenFilters = ({
   chosenFilterOptions,

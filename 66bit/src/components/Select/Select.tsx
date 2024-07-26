@@ -1,7 +1,7 @@
 import cn from 'classnames';
-import styles from './Select.module.css';
 import { ChangeEvent, useEffect, useState } from 'react';
 import { SelectOption, SelectProps } from './Select.interface';
+import styles from './Select.module.css';
 
 const Select = ({
   selectableOptions,

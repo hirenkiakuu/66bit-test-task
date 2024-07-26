@@ -1,10 +1,10 @@
+import cn from 'classnames';
 import { Outlet } from 'react-router-dom';
 import { ThemeContext } from '../../context/theme.context';
+import { useContext, useEffect } from 'react';
 import Header from '../../components/Header/Header';
 import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
 import styles from './Layout.module.css';
-import { useContext, useEffect } from 'react';
-import cn from 'classnames';
 
 const Layout = () => {
   const { theme } = useContext(ThemeContext);

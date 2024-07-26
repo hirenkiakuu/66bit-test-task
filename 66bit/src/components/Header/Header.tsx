@@ -1,7 +1,7 @@
 import cn from 'classnames';
+import { useContext } from 'react';
 import { ThemeContext } from '../../context/theme.context';
 import ToggleButton from '../ToggleButton/ToggleButton';
-import { useContext } from 'react';
 import styles from './Header.module.css';
 
 const Header = () => {
